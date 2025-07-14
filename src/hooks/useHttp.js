@@ -1,5 +1,7 @@
 import { useCallback, useEffect, useState } from "react";
 
+export const ip = 'http://18.217.216.127:3000/';
+
 async function sendHttpRequest(url, config) {
   const response = await fetch(url, config);
 

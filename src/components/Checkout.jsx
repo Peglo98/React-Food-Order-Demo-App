@@ -5,7 +5,7 @@ import { currencyFormatter } from "../util/formatting";
 import Input from "./UI/Input";
 import Button from "./UI/Button";
 import UserProgressContext from "../store/UserProgressContext";
-import useHttp from "../hooks/useHttp";
+import useHttp, {ip} from "../hooks/useHttp";
 import Error from "./Error";
 
 const requestConfig = {
@@ -24,7 +24,7 @@ export default function Checkout() {
     error,
     sendRequest,
     clearData,
-  } = useHttp("http://localhost:3000/orders", requestConfig);
+  } = useHttp((`${ip}/orders`), requestConfig);
 
   const totalAmount = cartCtx.items.reduce(
     (total, item) => total + item.price * item.quantity,
